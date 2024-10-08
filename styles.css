@@ -1,0 +1,130 @@
+/* General styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #dcdcdc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Logo styling */
+.logo {
+    width: 150px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+h1, h2 {
+    margin: 5px 0;
+}
+
+p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+/* Input fields */
+input[type="text"], input[type="date"], textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* Section Titles */
+h3 {
+    margin: 15px 0 10px;
+    font-size: 18px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+td input {
+    width: 95%;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    input[type="text"], input[type="date"], textarea {
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Work Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container" id="report-content">
+        <header>
+            <h1><strong>ALITHO</strong></h1>
+            <h2><strong>DAILY WORK REPORT</strong></h2>
+            <p>Date: <input type="date" id="date"></p>
+            <p>Weather: <input type="text" id="weather"></p>
+            <p>Client: <input type="text" id="client"></p>
+            <p>Project: <input type="text" id="project"></p>
+            <p>Filled By: <input type="text" id="filledBy"></p>
+        </header>
+
+        <!-- Workers Section -->
+        <section class="entries">
+            <h3>Workers</h3>
+            <table id="worker-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                </tr>
+            </table>
+            <button id="add-worker">Add Worker</button>
+        </section>
+
+        <!-- Description of Work Performed -->
+        <section class="work-description">
+            <h3>Description of Work Performed</h3>
+            <textarea id="work-description" rows="4" cols="50" placeholder="Enter the work performed..."></textarea>
+        </section>
+
+        <!-- Materials Section -->
+        <section class="materials-section">
+            <h3>Materials</h3>
+            <table id="materials-table">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Where it Came From</th>
+                </tr>
+            </table>
+            <button id="add-material">Add Material</button>
+        </section>
+
+        <!-- Heavy Equipment Section -->
+        <section class="equipment-section">
+            <h3>Heavy Equipment</h3>
+            <table id="equipment-table">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Where it Came From</th>
+                </tr>
+            </table>
+            <button id="add-equipment">Add Heavy Equipment</button>
+        </section>
+
+        <!-- Tools & Machinery Section -->
+        <section class="tools-section">
+            <h3>Tools & Machinery</h3>
+            <table id="tools-table">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Where it Came From</th>
+                </tr>
+            </table>
+            <button id="add-tools">Add Tools & Machinery</button>
+        </section>
+
+        <!-- Additional Comments -->
+        <section class="comments-section">
+            <h3>Additional Comments</h3>
+            <textarea id="additional-comments" rows="4" cols="50" placeholder="Enter any additional comments..."></textarea>
+        </section>
+
+        <footer>
+            <button id="generate-pdf">Generate PDF</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Generate PDF
+        document.getElementById('generate-pdf').addEventListener('click', function () {
+            // Hide buttons before generating PDF
+            document.querySelectorAll('button').forEach(button => button.style.display = 'none');
+            
+            // Generate PDF
+            const content = document.getElementById('report-content');
+            html2pdf()
+              .from(content)
+              .save()
+              .then(() => {
+                  // Show buttons again after PDF generation
+                  document.querySelectorAll('button').forEach(button => button.style.display = 'inline-block');
+              });
+        });
+    </script>
+</body>
+</html>
