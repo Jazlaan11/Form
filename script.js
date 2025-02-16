@@ -3,6 +3,9 @@ let materialCount = 0;
 let equipmentCount = 0;
 let toolCount = 0;
 
+// Set today's date as the default value for the date input field
+document.getElementById('date').valueAsDate = new Date();
+
 // Add Worker Button
 document.getElementById('add-worker').addEventListener('click', function() {
     workerCount++;
@@ -11,12 +14,15 @@ document.getElementById('add-worker').addEventListener('click', function() {
     
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
     
     const nameInput = document.createElement('input');
     const designationInput = document.createElement('input');
+    const removeButton = document.createElement('button');
     
     nameInput.type = 'text';
     designationInput.type = 'text';
+    removeButton.textContent = 'Remove';
     
     // Set unique id for each worker field
     nameInput.id = `worker-name-${workerCount}`;
@@ -24,6 +30,11 @@ document.getElementById('add-worker').addEventListener('click', function() {
     
     cell1.appendChild(nameInput);
     cell2.appendChild(designationInput);
+    cell3.appendChild(removeButton);
+
+    removeButton.addEventListener('click', function() {
+        table.deleteRow(row.rowIndex);
+    })
 });
 
 // Add Material Button
