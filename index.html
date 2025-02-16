@@ -14,8 +14,24 @@
             <h2><strong>DAILY WORK REPORT</strong></h2>
             <p>Date: <input type="date" id="date"></p>
             <p>Weather: <input type="text" id="weather"></p>
-            <p>Client: <input type="text" id="client"></p>
-            <p>Project: <input type="text" id="project"></p>
+            <p>Project: 
+                <select id="project">
+                    <option value="">Select a project</option>
+                    <option value="Project1">Newsoshine</option>
+                    <option value="Project2">Poolcopyge</option>
+                    <option value="Project3">Ocean Green</option>
+                    <option value="Project4">Meeru</option>
+                    <option value="Project5">Dino</option>
+                    <option value="Project6">Maagaha</option>
+                    <option value="Project7">Joute Flower</option>
+                    <option value="Project8">Amethyst</option>
+                    <option value="Project9">Naaringuge</option>
+                    <option value="Project10">Boavelige</option>
+                    <option value="Project11">Binaaru</option>
+                    <option value="Project12">Naaringuge</option>
+                    <option value="Project13">Ranriyaaluge</option>
+                </select>
+            </p>
             <p>Filled By: <input type="text" id="filledBy"></p>
         </header>
 
@@ -26,10 +42,13 @@
                 <tr>
                     <th>Name</th>
                     <th>Designation</th>
+                    <th>Action</th>
                 </tr>
             </table>
             <button id="add-worker">Add Worker</button>
         </section>
+
+        <div class="page-break"></div>
 
         <!-- Description of Work Performed -->
         <section class="work-description">
@@ -91,19 +110,28 @@
     <script>
         // Generate PDF
         document.getElementById('generate-pdf').addEventListener('click', function () {
-            // Hide buttons before generating PDF
-            document.querySelectorAll('button').forEach(button => button.style.display = 'none');
-            
-            // Generate PDF
-            const content = document.getElementById('report-content');
-            html2pdf()
-              .from(content)
-              .save()
-              .then(() => {
-                  // Show buttons again after PDF generation
-                  document.querySelectorAll('button').forEach(button => button.style.display = 'inline-block');
-              });
+    // Hide buttons before generating PDF
+    document.querySelectorAll('button').forEach(button => button.style.display = 'none');
+
+    // Generate PDF
+    const content = document.getElementById('report-content');
+    const options = {
+        margin: [10, 10], // Set margins (top, right, bottom, left)
+        filename: 'daily_work_report.pdf', // PDF file name
+        image: { type: 'jpeg', quality: 0.98 }, // Image quality
+        html2canvas: { scale: 2 }, // Scale for better quality
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // A4 page size
+    };
+
+    html2pdf()
+        .set(options)
+        .from(content)
+        .save()
+        .then(() => {
+            // Show buttons again after PDF generation
+            document.querySelectorAll('button').forEach(button => button.style.display = 'inline-block');
         });
+});
     </script>
 </body>
 </html>
