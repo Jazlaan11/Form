@@ -7,9 +7,11 @@ body {
 }
 
 .container {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -19,6 +21,10 @@ header {
     border-bottom: 2px solid #dcdcdc;
     padding-bottom: 10px;
     margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 15px;
 }
 
 /* Logo styling */
@@ -40,6 +46,17 @@ p {
 /* Input fields */
 input[type="text"], input[type="date"], textarea {
     width: 100%;
+    padding: 6px;
+    margin: 3px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 12px;
+}
+
+select {
+    width: 100%;
     padding: 8px;
     margin: 5px 0;
     box-sizing: border-box;
@@ -58,13 +75,14 @@ h3 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 th, td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 8px;
     text-align: left;
+    font-size: 12px;
 }
 
 th {
@@ -78,13 +96,14 @@ td input {
 
 /* Buttons */
 button {
-    padding: 10px 15px;
+    padding: 8px 12px;
     margin-top: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 12px;
 }
 
 button:hover {
@@ -97,6 +116,21 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
+    resize: vertical;
+    min-height: 80px;
+}
+
+button.remove-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.remove-button:hover {
+    background-color: #cc0000;
 }
 
 /* Footer */
@@ -126,5 +160,11 @@ footer {
 
     table {
         font-size: 14px;
+    }
+}
+
+@media print {
+    .page-break {
+        page-break-before: always; /* Force a page break */
     }
 }
